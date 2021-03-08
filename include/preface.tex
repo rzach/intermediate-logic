@@ -45,7 +45,7 @@ the reasons for why the results and the methods covered in this text
 are recommended study---in some cases even required---for students of
 computer science and philosophy.
 
-The material is divided into three parts. Part~1 concerns
+The material is divided into three parts. \Olref[sfr][][]{part} concerns
 itself with the theory of sets. Logic and metalogic is historically
 connected very closely to what's called the ``foundations of
 mathematics.''  Mathematical foundations deal with how ultimately
@@ -93,7 +93,7 @@ of infinity. This result has important applications, but it is
 also really the kind of result that any self-respecting mathematician,
 computer scientist, or philosopher should know.
 
-In the second part we turn to first-order logic. We will define the
+In \olref[fol][][]{part} we turn to first-order logic. We will define the
 language of first-order logic and its semantics, i.e., what
 first-order structures are and when a sentence of first-order logic is
 true in a structure. This will enable us to do two important things:
@@ -120,7 +120,7 @@ from them---then there is a structure that makes all of them true.
 
 The second formulation of the completeness theorem is perhaps the more
 surprising. Around the time G\"odel proved this result (in 1929), the
-German mathematician David Hilbert famously held the view that
+German mathematician David Hilbert famously held the view (which builds on a similar view of the leading French mathematician Henri Poincar\'e) that
 consistency (i.e., freedom from contradiction) is all that mathematical
 existence requires. In other words, whenever a mathematician can
 coherently describe a structure or class of structures, then they
@@ -135,7 +135,126 @@ us to prove further results about the existence of structures which
 make given sentences true. These are the compactness and the
 L\"owenheim-Skolem theorems.
 
-In the third part \dots
+In \cref{incompleteness}, we will present (in \olref[inc][inp][]{chap}) what have come to be called the \emph{G\"odel Incompleteness Theorems}, two results which constitute G\"odel's second great contribution to mathematical logic.\footnote{Believe it or not, there was a third, the proof of the relative consistency of the Axiom of Choice and the Generalised Continuum Hypothesis with the standard axioms of set theory. Any one of these contributions would have made G\"odel a giant of the subject!{}} We mentioned Hilbert above. Another of his extremely important contributions (from the 1890s) was the insistence on the axiomatic method, above all for studying independence proofs and relative consistency, and through this a much more refined notion of logical dependency than had been possible hitherto.\footnote{Pursuit of the axiomatic method was what led to the ``consistency $\Rightarrow$ existence'' thesis mentioned in the previous paragraph.}  Part of the idea behind this was  that theories (like that for natural number arithmetic or for sets) must be formulated by finitely presented axiom systems which are `self-standing' in the sense that  all the major arithmetical or set-theoretical facts can be derived in the axiom systems. This leads to two questions in particular:
+\begin{enumerate}
+  \item How can we show that the axiom system we give are
+  \emph{consistent}, i.e., do not lead to the proof of contradictions?
+  (Logic itself doesn't, as we will show, but special axioms for
+  numbers or sets added to the logical system might.)
+  \item Are there truths, about numbers say, which cannot be derived
+  from a natural axiom system for arithmetic? We can derive some
+  truths, for example \[2+2=4\] or \[\forall m, n (m+n=n+m),\]  but
+  do  we know that we have captured \emph{all} of them?
+\end{enumerate}
+G\"odel's work relates directly to these questions. 
+
+\emph{The First Incompleteness Theorem} addresses the second question.
+What G\"odel invented was a very powerful general method for the
+construction of \emph{self-referential sentences} within  the
+languages concerned (provided they have certain mechanisms available),
+for instance, sentences of the restricted language of arithmetic (see
+\olref[inc][art][]{chap}). To be more specific, we will be able to
+form sentences in the special first-order arithmetical language which
+talk about themselves, and can describe fundamental properties that
+they possess. This is analogous to the following sentence of English:
+`I am a sentence  which  contains four commas, consists of 25 words,
+and, when written and set on Richard Zach's  computer,  appears in
+black type'. If we've counted the number of commas and words
+correctly, this sentence is quite straightforwardly \emph{true}.
+G\"odel's method allowed for the formulation of a perfectly ordinary
+(logically fairly simple, but rather long) sentence of arithmetic
+which says something like `I am not deducible from the system of
+axioms for arithmetic', and it is easy to show that (given that the
+axiom system for arithmetic is consistent ---~and we will be in rather
+serious  trouble if that isn't correct) this sentence must be
+\emph{true}, and that therefore what it says must be correct, from
+which it follows that it is indeed not deducible. Note this:
+\emph{true} but \emph{not deducible}!{} Hence, arithmetic is
+\emph{incomplete}. G\"odel's procedure gives us a general recipe for
+the production of true but underivable sentences for a very wide range
+of theories and their languages. For instance, suppose, out of
+frustration,  we add the particular, underivable  sentence just
+described as a new axiom to get a new theory of arithmetic, then we
+can use the very same procedure to produce a \emph{new} sentence which
+is true and cannot be derived from that  expanded axiom system. It is
+the \emph{general} nature of the procedure (what we now usually mean
+when we refer to `G\"odel's First Incompleteness Theorem') which gives
+the G\"odel result its enormous power, and ensures that it does not
+present a mere curio, but a genuine philosophical dilemma.
+
+Closely related to G\"odel's First Incompleteness Theorem is
+\emph{Tarski's Theorem} on the undefinability of truth for reasonable
+axioms systems for arithmetic using the usual language, and this we
+will also look at. We mentioned above the  crucial importance of the
+assumption of the consistency of arithmetic. What Tarski's saw was
+that if truth \emph{were} definable within  the language of
+arithmetic, then we could show that arithmetic would in fact be
+\emph{inconsistent}, since we could in effect produce in the language
+of arithmetic a version of a so-called `Liar sentence', a sentence
+which is contradictory since it must be simultaneously both true and
+false, just like the sentence of ordinary English `This sentence is
+not true'.  (The parallel with the standard G\"odel sentence which
+says something like `This sentence is not derivable' is conscious and
+deliberate on G\"odel's part. The G\"odel sentence is a sentence of
+the language of arithmetic, the Liar sentence is not.)
+
+G\"odel  produced a fairly straightforward (but difficult to execute)
+modification of the proof  for the First Theorem which he used to show
+the following: the consistency of arithmetic can only be shown by a
+theory which has \emph{stronger} theoretical resources than those
+available to arithmetic itself. This (expressed in the \emph{Second
+Incompleteness Theorem}) addresses the \emph{first} question posed
+above, for in a sense it says that we cannot really prove the
+consistency of arithmetic at all, at least, not  if we are doing so to
+guarantee the `health and safety' of formal arithmetic.  (Of course,
+there are other reasons for studying the inferential structure of
+theories, and thus consistency, and these have been widely pursued.)
+Again, G\"odel's Second Incompleteness Theorem   has extraordinary
+range, and applies to a very wide swathe of ordinary, working
+theories, the theory of sets among them. 
+
+Closely related to the both the First and the Second Theorems is a
+result called \emph{L\"ob's Theorem}, which we will also look at
+briefly. We will also examine another result which in a way presages
+G\"odel's First Incompleteness Theorem, often called \emph{Skolem's
+Theorem}, which concerns the austere and strange world of non-standard
+models of arithmetic. These contain the usual natural numbers, which
+behave exactly as we expect them to behave, but much (very much!{})
+more,  namely a vast multiplicity of what we call \emph{non-standard
+numbers} with very odd structure (see \cref{mod:chap}.) 
+
+In sum, we will see that these results (some of the most important theorems of  twentieth-century logic) tells us a good deal about the power and also the limitations of  
+first-order logic. (But what's the alternative to first-order logic?
+This is touched on in \olref[fol][byd][]{chap}.) From  these central
+results, highly technical in nature, wider \emph{philosophical}
+consequences start to flow, certainly important consequences for the
+philosophy of mathematics, for instance concerning  the role of proof
+and provability, and the connections between proof and truth, and for
+Hilbert's programme, some of which we touched on above, but also
+consequences for philosophy more generally, for instance for the
+computational theory of mind, for the theory of truth (and thus
+philosophy of language), and consequences concerning the nature of
+mathematical and scientific theories. 
+
+\bigskip
+
+\noindent The material here is very much cumulative, and the results
+emerge slowly. Hence, it's important both to keep up, and to be
+patient. Believe us, it's worth it!{} And remember all the time, that
+what we're doing is really proving things in an \emph{informal} way
+about \emph{formal} languages and proof systems, even though it helps
+to be familiar with doing \emph{formal} proofs (following rules of
+proof) and with the semantics of first-order languages. 
+
+Logic at this level is a difficult but very beautiful subject, and is
+very different in nature and approach from the subject of logic as
+presented in your first logic course. Being good at that does not, by
+any means, ensure you will be good at this. What this requires is,
+above all, not mathematical knowledge, or even mathematical ability,
+but rather something which we might, rather obscurely, refer to as
+\emph{mathematical apitude}. 
+
+Let us begin.
 
 % \section*{Acknowledgments}
 

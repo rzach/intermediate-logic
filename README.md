@@ -6,7 +6,7 @@ Textbook on basic set theory, first-order logic, and Gödel's
 incompleteness theorems, developed for McGill's Intermediate Logic
 course, based on the Open Logic Project.
 
-Downlaod the [PDF here](https://builds.openlogicproject.org/courses/intermediate-logic/il-screen.pdf).
+Download the [PDF here](https://builds.openlogicproject.org/courses/intermediate-logic/il-screen.pdf).
 
 This repository/directory only contains the LaTeX files and
 illustrations needed to typeset the textbook _Intermediate logic_,
