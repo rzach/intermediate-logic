@@ -31,7 +31,15 @@
 
 \olimport*[incompleteness/representability-in-q]{representability-in-q}
 
+\let\SavedOLEndChapterHook\OLEndChapterHook
+\let\OLEndChapterHook\relax
+
 \olimport*[incompleteness/incompleteness-provability]{incompleteness-provability}
+
+\input{include/tarski-loeb}
+
+\let\OLEndChapterHook\SavedOLEndChapterHook
+\OLEndChapterHook
 
 \chapter{Models of Arithmetic}\label{mod:chap}
 
@@ -98,6 +106,6 @@
 \photocredits
 
 \bibliographystyle{\olpath/bib/natbib-oup}
-\bibliography{\olpath/bib/open-logic.bib}
+\bibliography{\olpath/bib/open-logic.bib,il.bib}
 
 \olimport*{\olpath/content/open-logic-about}
