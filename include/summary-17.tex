@@ -1,53 +1,26 @@
-A \textbf{model of arithmetic} is !!a{structure} for the
-language~$\Lang{L_A}$ of arithmetic.  There is one distinguished such
-model, the \textbf{standard model}~$\Struct{N}$, with $\Domain{N}
-= \Nat$ and interpretations of $\Obj 0$, $\prime$, $+$, $\times$, and
-$<$ given by $0$, the successor, addition, and multiplication
-functions on~$\Nat$, and the less-than relation. $\Struct{N}$ is a
-model of the theories $\Th{Q}$ and~$\Th{PA}$.
-
-More generally, !!a{structure} for $\Lang{L_A}$ is
-called \textbf{standard} iff it is isomorphic to~$\Struct{N}$. Two
-!!{structure}s are isomorphic if there is an \textbf{isomorphism}
-between them, i.e., !!a{bijective} function which preserves the
-interpretations of !!{constant}s, !!{function}s, and !!{predicate}s.
-By the \textbf{isomorphism theorem}, isomorphic structures
-are \textbf{elementarily equivalent}, i.e., they make the same
-sentences true.  In standard models, the domain is just the set of
-values of all the numerals~$\num{n}$.
-
-Models of $\Th{Q}$ and $\Th{PA}$ that are not isomorphic
-to~$\Struct{N}$ are called \textbf{non-standard}. In non-standard
-models, the domain is not exhausted by the values of the numerals.  An
-element $x \in \Domain{M}$ where $x \neq \Value{\num{n}}{M}$ for
-all~$n \in \Nat$ is called a \textbf{non-standard element}
-of~$\Struct{M}$.  If $\Sat{M}{\Th{Q}}$, non-standard elements must
-obey the axioms of~$\Th{Q}$, e.g., they have unique successors, they
-can be added and multiplied, and compared using~$<$. The standard
-elements of~$\Struct{M}$ are all $\Assign{<}{M}$ all the non-standard
-elements.  Non-standard models exist because of the compactness
-theorem, and for $\Th{Q}$ they can relatively easily be given
-explicitly. Such models can be used to show that, e.g., $\Th{Q}$ is
-not strong enough to prove certain !!{sentence}s, e.g.,
-$\Th{Q} \Proves/ \lforall[x][\lforall[y][\eq[(x+y)][(y+x)]]]$. This is
-done by defining a non-standard $\Struct{M}$ in which non-standard
-elements don't obey the law of commutativity.
-
-Non-standard models of~$\Struct{PA}$ cannot be so easily specified
-explicitly. By showing that $\Th{PA}$ proves certain sentences, we can
-investigate the structure of the non-standard part of a non-standard
-model of~$\Th{PA}$. If a non-standard model~$\Struct{M}$ of~$\Th{PA}$
-is !!{enumerable}, every non-standard element is part of a ``block''
-of non-standard elements which are ordered like~$\Int$
-by~$\Assign{<}{M}$.  These blocks themselves are arranged like~$\Rat$,
-i.e., there is no smallest or largest block, and there is always a
-block in between any two blocks.
-
-Any !!{enumerable} model is isomorphic to one with domain~$\Nat$. If
-the interpretations of $\prime$, $+$, $\times$, and $<$ in such a
-model are computable functions, we say it is a \textbf{computable
-model}. The standard model~$\Struct{N}$ is computable, since the
-successor, addition, and multiplication functions and the less-than
-relation on~$\Nat$ are computable. It is possible to define computable
-non-standard models of~$\Th{Q}$, but $\Struct{N}$ is the only
-computable model of~$\Th{PA}$. This is \textbf{Tannenbaum's Theorem}.
+In order to show how theories like~$\Th{Q}$ can ``talk'' about
+computable functions---and especially about provability (via G\"odel
+numbers)---we established that $\Th{Q}$ \textbf{represents} all
+computable functions. By ``$\Th{Q}$ represents $f(n)$'' we mean that
+there is !!a{formula}~$!A_f(x, y)$ in~$\Lang{L_A}$ which expresses
+that $f(x) = y$, and $\Th{Q}$ can prove that it does.  This, in turn,
+means that whenever $f(n) = m$, then $\Th{Q} \Proves !A_f(\num{n},
+\num{m})$ and $\Th{Q} \Proves \lforall[y][(!A_f(\num{n}, y) \lif y =
+\num{m})]$. (Here, $\num{n}$ is the \textbf{standard numeral} for~$n$,
+i.e., the term $\Obj 0^{\prime\dots\prime}$ with $n$~$\prime$s. The
+term~$\num{n}$ picks out the number~$n$ in the standard
+model~$\Struct{N}$, so it's a convenient way of representing the
+number~$n$ in $\Lang{L_A}$.) To prove that $\Th{Q}$ represents all
+computable functions we go back to the characterization of computable
+functions as those that can be defined from $\Zero$, $\Succ$, and the
+projection functions, by composition, primitive recursion, and regular
+minimization. While it is relatively easy to prove that the basic
+functions are representable and that functions defined by composition
+and regular minimization from representable functions are also
+representable, primitive recursion is harder. We showed that we can
+actually avoid definition by primitive recursion, if we allow a few
+additional basic functions (namely, addition, multiplication, and the
+characteristic function of~$=$). This required a \textbf{beta
+function} which allows us to deal with sequences of numbers in a
+rudimentary way, and which can be defined without using primitive
+recursion.
