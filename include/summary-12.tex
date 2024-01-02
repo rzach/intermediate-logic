@@ -1,42 +1,35 @@
-In order to show that $\Th{Q}$ represents all computable functions, we
-need a precise model of computability that we can take as the basis
-for a proof.  There are, of course, many models of computability, such
-as Turing machines. One model that plays a significant role
-historically---it's one of the first models proposed, and is also the
-one used by G\"odel himself---is that of the \textbf{recursive
-  functions}.  The recursive functions are a class of arithmetical
-functions---that is, their domain and range are the natural
-numbers---that can be defined from a few basic functions using a few
-operations. The basic functions are $\Zero$, $\Succ$, and the
-projection functions. The operations are \textbf{composition},
-\textbf{primitive recursion}, and \textbf{regular
-  minimization}. Composition is simply a general version of ``chaining
-together'' functions: first apply one, then apply the other to the
-result. Primitive recursion defines a new function~$f$ from two
-functions $g$, $h$ already defined, by stipulating that the value of
-$f$ for $0$ is given by~$g$, and the value for any number $n+1$ is
-given by $h$ applied to $f(n)$.  Functions that can be defined using
-just these two principles are called \textbf{primitive recursive}. A
-relation is primitive recursive iff its characteristic function is. It
-turns out that a whole list of interesting functions and relations are
-primitive recursive (such as addition, multiplication, exponentiation,
-divisibility), and that we can define new primitive recursive
-functions and relations from old ones using principles such as bounded
-quantification and bounded minimization. In particular, this allowed
-us to show that we can deal with \emph{sequences} of numbers in
-primitive recursive ways. That is, there is a way to ``code''
-sequences of numbers as single numbers in such a way that we can
-compute the $i$-the element, the length, the concatenation of two
-sequences, etc., all using primitive recursive functions operating on
-these codes.  To obtain all the computable functions, we finally added
-definition by \textbf{regular minimization} to composition and
-primitive recursion.  A function~$g(x, y)$ is \textbf{regular} iff,
-for every~$y$ it takes the value~$0$ for at least one~$x$. If $f$ is
-regular, the least $x$ such that $g(x, y) = 0$ always exists, and can
-be found simply by computing all the values of $g(0, y)$, $g(1, y)$,
-etc., until one of them is $= 0$. The resulting function~$f(y) =
-\umin{x}{g(x, y) = 0}$ is the function defined by regular minimization
-from $g$. It is always total and computable. The resulting set of
-functions are called \textbf{general recursive}.  One version of the
-Church-Turing Thesis says that the computable arithmetical functions
-are exactly the general recursive ones.
+The \emph{completeness theorem} is the converse of the \emph{soundness
+  theorem}. In one form it states that if $\Gamma \Entails !A$ then
+$\Gamma \Proves !A$, in another that if $\Gamma$ is consistent then it
+is satisfiable. We proved the second form (and derived the first from
+the second). The proof is involved and requires a number of steps. We
+start with a consistent set~$\Gamma$. First we add infinitely many
+new constant symbols~$c_i$ as well as formulas of the form
+$\lexists[x][!A(x)] \lif !A(c)$ where each formula~$!A(x)$ with a free
+variable in the expanded language is paired with one of the new
+constants. This results in a \emph{saturated} consistent set of
+sentences containing~$\Gamma$. It is still consistent. Now we take
+that set and extend it to a \emph{complete consistent set}. A
+complete consistent set has the nice property that for any
+sentence~$!A$, either $!A$ or $\lnot !A$ is in the set (but never
+both). Since we started from a saturated set, we now have a saturated,
+complete, consistent set of sentences~$\Gamma^*$ that
+includes~$\Gamma$. From this set it is now possible to define a
+structure~$\Struct{M}$ such that $\Sat{M(\Gamma^*)}{!A}$ iff
+$!A \in \Gamma^*$. In particular, $\Sat{M(\Gamma^*)}{\Gamma}$, i.e.,
+$\Gamma$ is satisfiable. If $=$ is present, the construction is
+slightly more complex.
+
+Two important corollaries follow from the completeness theorem. The
+\emph{compactness theorem} states that $\Gamma \Entails !A$ iff
+$\Gamma_0 \Entails !A$ for some finite $\Gamma_0 \subseteq \Gamma$. An
+equivalent formulation is that $\Gamma$ is satisfiable iff every
+finite $\Gamma_0 \subseteq \Gamma$ is satisfiable. The compactness
+theorem is useful to prove the existence of structures with certain
+properties. For instance, we can use it to show that there are
+infinite models for every theory which has arbitrarily large finite
+models. This means in particular that finitude cannot be expressed in
+first-order logic. The second corollary, the \emph{L\"owenheim-Skolem
+  Theorem}, states that every satisfiable $\Gamma$ has a countable
+model. It in turn shows that uncountability cannot be expressed in
+first-order logic.
