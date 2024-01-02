@@ -6,7 +6,7 @@ in a roundabout way, says ``$\Th{T}$ does not prove~$!G_\Th{T}$.''
 Since $\Th{T}$ does not, in fact, prove it, what it says is true. If
 $\Sat{N}{\Th{T}}$, then $\Th{T}$ does not prove any false claims, so
 $\Th{T} \Proves/ \lnot !G_\Th{T}$. Such !!a{sentence} is
-\textbf{independent} or \textbf{undecidable} in~$\Th{T}$.  G\"odel's
+\textbf{independent} or \textbf{undecidable} in~$\Th{T}$. G\"odel's
 original proof established that $!G_\Th{T}$ is independent on the
 assumption that $\Th{T}$ is \textbf{$\omega$-consistent}. Rosser
 improved the result by finding a different sentence~$!R_\Th{T}$ with
@@ -28,7 +28,7 @@ that $\Prf[\Th{T}](n, m)$, which holds if $n$ is the G\"odel number of
 from~$\Th{T}$, is primitive recursive. We also know that $\Th{Q}$
 represents all primitive recursive relations, and so there is some
 !!{formula} $\OPrf[\Th{T}](x,y)$ that represents~$\Prf[\Th{T}]$
-in~$\Th{Q}$.  The \textbf{provability predicate} for $\Th{T}$ is
+in~$\Th{Q}$. The \textbf{provability predicate} for $\Th{T}$ is
 $\Prov[\Th{T}](y)$ is $\lexists[x][\Prf[\Th{T}](x, y)]$ then expresses
 provability in~$\Th{T}$. (It doesn't represent it though: if $\Th{T}
 \Proves !A$, then $\Th{Q} \Proves \OProv[\Th{T}](\gn{!A})$; but if
@@ -37,20 +37,19 @@ $\Th{T} \Proves/ !A$, then $\Th{Q}$ does not in general prove $\lnot
 
 The \textbf{second incompleteness theorem} establishes that the
 !!{sentence}~$\OCon[\Th{T}]$ that expresses that $\Th{T}$ is
-consistent, i.e., $\Th{T}$ also does not prove
-$\lnot \OProv[\Th{T}](\gn{\lfalse})$.  The proof of the second
-incompleteness theorem requires some additional conditions
-on~$\Th{T}$, the
+consistent, i.e., $\Th{T}$ also does not prove $\lnot
+\OProv[\Th{T}](\gn{\lfalse})$.  The proof of the second incompleteness
+theorem requires some additional conditions on~$\Th{T}$, the
 \textbf{provability conditions}. $\Th{PA}$ satisfies them,
-although~$\Th{Q}$ does not.  Theories that satisfy the provability
+although~$\Th{Q}$ does not. Theories that satisfy the provability
 conditions also satisfy \textbf{L\"ob's theorem}: $\Th{T} \Proves
 \OProv[\Th{T}](\gn{!A}) \lif !A$ iff $\Th{T} \Proves !A$.
 
 The fixed-point theorem also has another important consequence. We say
 a relation $R(n)$ is \textbf{definable} in $\Lang{L_A}$ if there is
-!!a{formula} $!A_R(x)$ such that $\Sat{N}{!A_R(\num{n})}$ iff $R(n)$
+!!a{formula}~$!A_R(x)$ such that $\Sat{N}{!A_R(\num{n})}$ iff $R(n)$
 holds. For instance, $\Prov[\Th{T}]$ is definable, since
-$\OProv[\Th{T}]$ defines it. The property $n$ has iff it is the
+$\OProv[\Th{T}]$ defines it. The property $n$~has iff it is the
 G\"odel number of !!a{sentence} true in~$\Struct{N}$, however, is not
 definable. This is \textbf{Tarski's theorem} about the undefinability
 of truth.
